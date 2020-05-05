@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  web:
+    build: ./services/web
+    command: gunicorn --bind 0.0.0.0:5000 manage:app
+    volumes:
+      - static_volume:/home/app/web/static
+    expose:
+      - 5000
+    env_file:
+      - ./.env.prod
+  nginx:
+    build: ./services/nginx
+    ports:
+      - 1337:80
+    volumes:
+      - static_volume:/home/app/web/static
+    depends_on:
+      - web
+
+volumes:
+  static_volume:
