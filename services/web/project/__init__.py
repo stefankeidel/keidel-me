@@ -3,17 +3,16 @@ from flask import Flask, flash, request, redirect, render_template
 from werkzeug.utils import secure_filename
 from similarity import pairwise
 
-ALLOWED_EXTENSIONS = set(["txt", "pdf", "doc", "docx", "odt"])
-UPLOAD_FOLDER = '/home/app/web/files/'
 
 app = Flask(__name__)
-app.secret_key = "secret key"
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
+app.config.from_object("project.config.Config")
+app.secret_key = os.getenv('FLASK_SECRET_KEY')
 
 
 def allowed_file(filename):
-    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in set(
+        ["txt", "pdf", "doc", "docx", "odt"]
+    )
 
 
 @app.route("/")
