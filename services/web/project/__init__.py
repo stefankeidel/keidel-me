@@ -6,7 +6,7 @@ from similarity import pairwise
 
 app = Flask(__name__)
 app.config.from_object("project.config.Config")
-app.secret_key = os.getenv('FLASK_SECRET_KEY')
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
 
 def allowed_file(filename):
@@ -28,6 +28,7 @@ def upload_file():
             return redirect("/")
         files = request.files.getlist("files[]")
         saved_file_list = []
+        file_name_list = []
         for file in files:
             if file and allowed_file(file.filename):
                 file_path = os.path.join(
@@ -35,10 +36,15 @@ def upload_file():
                 )
                 file.save(file_path)
                 saved_file_list.append(file_path)
+                file_name_list.append(secure_filename(file.filename))
 
         if len(saved_file_list) > 0:
-            similarity = pairwise(saved_file_list)
-            return render_template("result.html", similarity_array=similarity)
+            similarity = pairwise(saved_file_list, round_decimals=2)
+            return render_template(
+                "result.html",
+                similarity_array=similarity,
+                file_name_list=file_name_list,
+            )
 
         return redirect("/")
 
