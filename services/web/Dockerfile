@@ -24,15 +24,15 @@ ENV APP_HOME=/home/app/web
 RUN mkdir $APP_HOME
 WORKDIR $APP_HOME
 
-# copy project
-COPY . $APP_HOME
-
-# chown all the files to the app user
-RUN chown -R app:app $APP_HOME
-
 # change to the app user
 USER app
 
 # download nltk deps
 RUN python -m nltk.downloader stopwords
 RUN python -m nltk.downloader punkt
+
+# copy project
+COPY . $APP_HOME
+
+# chown all the files to the app user
+RUN chown -R app:app $APP_HOME
