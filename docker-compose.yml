@@ -11,7 +11,7 @@ services:
     env_file:
       - ./.env.prod
   docs:
-    image: sismics/docs:v1.8
+    image: sismics/docs:latest
     container_name: docs
     restart: always
     environment:
