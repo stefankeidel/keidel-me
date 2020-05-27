@@ -40,6 +40,11 @@ def upload_file():
 
         if len(saved_file_list) > 0:
             similarity = pairwise(saved_file_list, round_decimals=2)
+
+            # some basic file cleanup
+            for saved_file in saved_file_list:
+                os.remove(saved_file)
+
             return render_template(
                 "result.html",
                 similarity_array=similarity,
