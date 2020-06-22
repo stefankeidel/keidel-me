@@ -5,7 +5,7 @@ services:
     build: ./services/web
     command: gunicorn --bind 0.0.0.0:5000 manage:app
     ports:
-      - 5000
+      - 5000:5000
     env_file:
       - ./.env.prod
   docs:
@@ -17,7 +17,7 @@ services:
     volumes:
       - docs-data:/data
     ports:
-      - 8080
+      - 8080:8080
 
 volumes:
   docs-data:
