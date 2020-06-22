@@ -4,7 +4,7 @@ services:
   web:
     build: ./services/web
     command: gunicorn --bind 0.0.0.0:5000 manage:app
-    expose:
+    ports:
       - 5000
     env_file:
       - ./.env.prod
@@ -16,7 +16,7 @@ services:
       - DOCS_BASE_URL=https://docs.${DOMAINNAME}
     volumes:
       - docs-data:/data
-    expose:
+    ports:
       - 8080
 
 volumes:
