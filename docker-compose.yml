@@ -1,7 +1,7 @@
 version: '3.7'
 
 services:
-  web:
+  plagiarism:
     build: ./services/web
     command: gunicorn --bind 0.0.0.0:5000 manage:app
     ports:
@@ -18,6 +18,15 @@ services:
       - docs-data:/data
     ports:
       - 8080:8080
+  tiles:
+    image: gravel/tileserver
+    command: run
+    volumes:
+      - openstreetmap-cyclosm-data:/var/lib/postgresql/12/main
+    ports:
+      - 8081:80
 
 volumes:
   docs-data:
+  openstreetmap-cyclosm-data:
+    external: true
