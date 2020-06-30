@@ -52,9 +52,9 @@ services:
     ports:
         - "8083:80"
     volumes:
-        - ./data/profiles:/usr/share/nginx/html/profiles
-        - ./web/keys.js:/usr/share/nginx/html/keys.js
-        - ./web/config.js:/usr/share/nginx/html/config.js
+        - ./services/brouter/data/profiles:/usr/share/nginx/html/profiles
+        - ./services/brouter/web/keys.js:/usr/share/nginx/html/keys.js
+        - ./services/brouter/web/config.js:/usr/share/nginx/html/config.js
     depends_on:
       - brouter-app
   brouter-app:
@@ -62,9 +62,9 @@ services:
     ports:
         - "17777:17777"
     volumes:
-        - ./data/profiles:/data/profiles
-        - ./data/segments:/data/segments
-        - ./data/customprofiles:/data/customprofiles
+        - ./services/brouter/data/profiles:/data/profiles
+        - ./services/brouter/data/segments:/data/segments
+        - ./services/brouter/data/customprofiles:/data/customprofiles
     environment:
         - REQUEST_TIMEOUT=300
         - JAVA_OPTS=-Xmx128M -Xms128M -Xmn8M -XX:+PrintCommandLineFlags

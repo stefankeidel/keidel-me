@@ -25,6 +25,6 @@ WORKDIR /data
 
 ENV SEGMENTSPATH /data/segments
 ENV PROFILESPATH /data/profiles
-ENV CUSTOMPROFILESPATH /data/customprofiles
+ENV CUSTOMPROFILESPATH ../customprofiles
 
 CMD /usr/src/app/brouter/misc/scripts/standalone/server.sh

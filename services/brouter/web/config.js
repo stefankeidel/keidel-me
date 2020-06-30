@@ -20,7 +20,7 @@
     } else {
         // desktop configuration
 
-        BR.conf.host = 'http://localhost:17777';
+        BR.conf.host = 'http://brouter.keidel.me:17777';
 
         // Pre-loading selected profile disabled locally. Needs brouter-web to run on a
         // local web server with the profiles in a subdirectory or allowing file access
