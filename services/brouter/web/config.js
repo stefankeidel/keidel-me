@@ -26,7 +26,7 @@
         // local web server with the profiles in a subdirectory or allowing file access
         // in the Browser (security!), see
         // https://github.com/mrdoob/three.js/wiki/How-to-run-things-locally
-        BR.conf.profilesUrl = 'http://localhost:8000/profiles2/';
+        BR.conf.profilesUrl = 'https://www.keidel.me/brouter-profiles/';
         //BR.conf.profilesUrl = 'file://YOUR_PATH_TO/profiles2/';
     }
 
@@ -37,16 +37,19 @@
     BR.conf.initialMapZoom = 5;
 
     BR.conf.profiles = [
-        'gravel',
-        'trekking',
+        'dhanek-gravel',
+        'dhanek-mtb',
+        'dhanek-rennrad',
         'fastbike',
-        'safety',
-        'shortest',
+        'fastbike-lowtraffic',
+        'fastbike-verylowtraffic',
+        'poutnikl-mtb-light',
+        'poutnikl-trekking-cycle-routes',
+        'trekking',
         'trekking-ignore-cr',
-        'trekking-steep',
         'trekking-noferries',
         'trekking-nosteps',
-        'fastbike-lowtraffic'
+        'zossebart-mtb'
     ];
 
     // Removes default base layers when 'true'. Useful for only having custom layers (see below).
@@ -67,7 +70,7 @@
     };
 
     // Base layer to show on start, as position number in the layer switcher, starting from 0, default is first
-    BR.conf.defaultBaseLayerIndex = 4;
+    BR.conf.defaultBaseLayerIndex = 0;
 
     // Initial route line transparency (0-1, overridden by stored slider setting)
     BR.conf.defaultOpacity = 0.67;

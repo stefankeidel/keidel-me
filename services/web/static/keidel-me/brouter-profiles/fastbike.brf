@@ -27,7 +27,7 @@ assign avoid_unsafe             = false  # %avoid_unsafe% | Set to true to avoid
 assign considerTurnRestrictions = false  # %considerTurnRestrictions% | Set to true to take turn restrictions into account | boolean
 assign processUnusedTags        = false  # %processUnusedTags% | Set to true to output unused tags in data tab | boolean
 assign consider_traffic         = false  # %consider_traffic% | Set to true to avoid traffic | boolean
-assign allow_motorways = true # %allow_motorways% | Set to true to allow motorways (useful in Asia / Oceania for example) | boolean
+assign allow_motorways          = false  # %allow_motorways% | Set to true to allow motorways (useful in Asia / Oceania for example) | boolean
 
 # Change elevation parameters
 assign consider_elevation = true  # %consider_elevation% | Set to false to ignore elevation in routing | boolean

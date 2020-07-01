@@ -52,7 +52,7 @@ services:
     ports:
         - "8083:80"
     volumes:
-        - ./services/brouter/data/profiles:/usr/share/nginx/html/profiles
+        - ./services/web/static/keidel-me/brouter-profiles:/usr/share/nginx/html/profiles
         - ./services/brouter/web/keys.js:/usr/share/nginx/html/keys.js
         - ./services/brouter/web/config.js:/usr/share/nginx/html/config.js
     depends_on:
@@ -62,7 +62,7 @@ services:
     ports:
         - "17777:17777"
     volumes:
-        - ./services/brouter/data/profiles:/data/profiles
+        - ./services/web/static/keidel-me/brouter-profiles:/data/profiles
         - ./services/brouter/data/segments:/data/segments
         - ./services/brouter/data/customprofiles:/data/customprofiles
     environment:
